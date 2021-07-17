@@ -7,11 +7,14 @@ def main(args):
         event = json.load(event_file)
     g = Github(args.github_token)
     repo = g.get_repo(event['repository']['full_name'])
-    print(repo.name)
     pulls = repo.get_pulls(state='open', sort='created')
     for pr in pulls:
-      print(pr.number)
-      repo.merge(pr.head.ref, pr.base.ref)
+      print("Merging PR #" + str(pr.number))
+      try:
+        repo.merge(pr.head.ref, pr.base.ref)
+      except:
+        print("Merge failed for PR #" + str(pr.number) + "!Please check merge conflicts")
+        pass
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-g", "--github_token", help="Token for GitHub API")
