@@ -9,11 +9,11 @@ def main(args):
     repo = g.get_repo(event['repository']['full_name'])
     pulls = repo.get_pulls(state='open', sort='created')
     for pr in pulls:
-      print("Merging PR #" + str(pr.number))
       try:
         repo.merge(pr.head.ref, pr.base.ref)
+        print("Merged base branch to PR #" + str(pr.number))
       except:
-        print("Merge failed for PR #" + str(pr.number) + "! Please check merge conflicts")
+        print("Merge of base branch failed for PR #" + str(pr.number) + "! Please check merge conflicts")
         pass
 
 parser = argparse.ArgumentParser()
