@@ -13,7 +13,7 @@ def main(args):
       try:
         repo.merge(pr.head.ref, pr.base.ref)
       except:
-        print("Merge failed for PR #" + str(pr.number) + "!Please check merge conflicts")
+        print("Merge failed for PR #" + str(pr.number) + "! Please check merge conflicts")
         pass
 
 parser = argparse.ArgumentParser()
