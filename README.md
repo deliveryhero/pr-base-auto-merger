@@ -4,7 +4,7 @@ Automatically merge branch from base(main/master) into all open PR local branche
 ## How it works?
 - GH action job will be triggered when there is push to main/master branch by merging PR or direct commit.
 - GH action job will update all open PRs by merging branch from base(main/master) into local branches.
-  
+
   You can specify delay between merges by `MERGE_DELAY` env variable to avoid load on CI/CD tools,atlantis etc.
 
 
@@ -32,6 +32,7 @@ Automatically merge branch from base(main/master) into all open PR local branche
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Delay in seconds between consecutive merges
           MERGE_DELAY: 5
+          MERGE_LABEL: 'auto-base-merge'
   ```
 
 ## TO-DO features
