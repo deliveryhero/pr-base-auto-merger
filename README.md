@@ -1,3 +1,3 @@
 # pr-base-auto-merger
-automatically merge branch from base into PR
+automatically merge branch from base(master) into PR local branch
 
