@@ -28,7 +28,7 @@ Automatically merge branch from base(main/master) into all open PR local branche
         uses: docker://suyogpatil36/pr-base-auto-merger:1.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Delay between consecutive merges
+          # Delay(seconds) between consecutive merges
           MERGE_DELAY: 5
   ```
 
