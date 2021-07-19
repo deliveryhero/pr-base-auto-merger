@@ -2,7 +2,9 @@
 Automatically merge branch from base(main/master) into all open PR local branches.
 
 ## How it works?
-GH action job will be triggered when there is push to main/master branch by merging PR or direct commit.
+- GH action job will be triggered when there is push to main/master branch by merging PR or direct commit.
+- GH action job will update all PRs by merging branch from base(main/master) into local branches.
+
 
 ## Steps to onboard repo
 - Just add below to github actions workflow yaml in `.github/workflows/` folder
