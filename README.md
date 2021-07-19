@@ -4,7 +4,7 @@ automatically merge branch from base(main/master) into all open PR local branche
 
 GH action job will be triggered when there is push to main/master branch by merging PR or direct commit.
 
-Just add below to github actions workflow yaml 
+Just add below to github actions workflow yaml
 ```
 name: Merge base branch into PRs
 
@@ -30,6 +30,5 @@ jobs:
 ```
 
 ## TO-DO features
-- Add option to specify delay between merges to avoid load on CI/CD tools,atlantis etc.
 - Add option to automerge base branch for only approved PRs to reduce unecessary master merges
 - Exclude PR with certain labels
