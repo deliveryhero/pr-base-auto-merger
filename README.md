@@ -8,7 +8,6 @@ Just add below to github actions workflow yaml
 ```
 name: Merge base branch into PRs
 
-
 on:
   push:
     branches:
