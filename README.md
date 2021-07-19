@@ -1,9 +1,10 @@
 # pr-base-auto-merger
 automatically merge branch from base(main/master) into all open PR local branches.
 
-Just add below to github actions workflow yaml 
 
 GH action job will be triggered when there is push to main/master branch by merging PR or direct commit.
+
+Just add below to github actions workflow yaml 
 ```
 name: Merge base branch into PRs
 
