@@ -5,10 +5,14 @@ Just add below to github actions workflow yaml and everything should start worki
 ```
 name: Merge base branch into PRs
 
+
 on:
   push:
     branches:
+    # automatically merge branch from base(main) into PR local branch
       - main
+    # automatically merge branch from base(master) into PR local branch
+    #  - master
 
 jobs:
   merge:
