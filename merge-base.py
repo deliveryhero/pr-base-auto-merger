@@ -13,10 +13,10 @@ def main(args):
       try:
         repo.merge(pr.head.ref, pr.base.ref)
         print("Merged base branch to PR #" + str(pr.number))
+        time.sleep(int(args.merge_delay))
       except:
         print("Merge of base branch failed for PR #" + str(pr.number) + "! Please check merge conflicts")
         pass
-      time.sleep(int(args.merge_delay))
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--merge_delay", help="Delay between merges")
