@@ -28,3 +28,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+## TO-DO features
+- Add option to specify delay between merges to avoid load on CI/CD tools,atlantis etc.
+- Add option to automerge only approved PRs to reduce unecessary master merges
+- Exclude PR with certain labels
