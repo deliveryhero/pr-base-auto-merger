@@ -41,4 +41,3 @@ Features:
 
 ## TO-DO features
 - Add option to automerge base branch for only approved PRs to reduce unnecessary master merges
-- Exclude/Include PR with certain labels
