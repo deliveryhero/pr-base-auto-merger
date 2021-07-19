@@ -27,8 +27,9 @@ jobs:
       uses: docker://suyogpatil36/pr-base-auto-merger:1.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        MERGE_DELAY: 5
 ```
 
 ## TO-DO features
-- Add option to automerge base branch for only approved PRs to reduce unecessary master merges
+- Add option to automerge base branch for only approved PRs to reduce unnecessary master merges
 - Exclude PR with certain labels
