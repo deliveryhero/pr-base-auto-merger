@@ -11,7 +11,7 @@ name: Merge base branch into PRs
 on:
   push:
     branches:
-    # Automatically merge branch from base(ain/master) into PR local branch
+    # Automatically merge branch from base(main/master) into PR local branch
       - main
 
 jobs:
