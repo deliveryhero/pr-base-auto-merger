@@ -11,10 +11,8 @@ name: Merge base branch into PRs
 on:
   push:
     branches:
-    # automatically merge branch from base(main) into PR local branch
+    # Automatically merge branch from base(ain/master) into PR local branch
       - main
-    # automatically merge branch from base(master) into PR local branch
-    #  - master
 
 jobs:
   merge:
@@ -27,6 +25,7 @@ jobs:
       uses: docker://suyogpatil36/pr-base-auto-merger:1.0.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Delay between consecutive merges
         MERGE_DELAY: 5
 ```
 
