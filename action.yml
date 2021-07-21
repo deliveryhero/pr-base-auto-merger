@@ -1,0 +1,9 @@
+name: 'PR Base Merger'
+description: 'Merge base branch into pull request local branch'
+author: 'Suyog Patil'
+branding:
+  icon: 'git-merge'
+  color: 'blue'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
