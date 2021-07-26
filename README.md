@@ -29,7 +29,7 @@ Features:
         max-parallel: 1
       steps:
       - name: PR base merge
-        uses: docker://suyogpatil36/pr-base-auto-merger:1.0.0
+        uses: deliveryhero/pr-base-auto-merger@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Delay in seconds between consecutive merges
