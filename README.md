@@ -1,5 +1,5 @@
 # pr-base-auto-merger
-Automatically merge branch from base(main/master) into all open PR local branches.
+Automatically merge branch from base(main/master) into all open PR local branches. So add auto-base-merge label + enable [automerge](https://docs.github.com/en/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request) on github UI and your PR will be automatically merged after approval without any worry of out of sync PR local branch.
 
 ## How it works?
 - GH action job will be triggered when there is push to main/master branch by merging PR or direct commit.
