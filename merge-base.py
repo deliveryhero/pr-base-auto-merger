@@ -6,18 +6,18 @@ from github import Github
 
 
 def main(args):
-    with open(args.event_path) as event_file:
-        event = json.load(event_file)
     g = Github(args.github_token)
+
+    # Fetch all PRs against the current repository.
+    event = json.load(open(args.event_path))
     repo = g.get_repo(event['repository']['full_name'])
     pulls = repo.get_pulls(state='open', sort='created')
+
+    # Merge the main/master branch if the PR was tagged with the correct label
+    # (cf. `--merge_label` option).
     for pr in pulls:
-        found = 0
-        for label in pr.get_labels():
-            if label.name == args.merge_label:
-                found = 1
-                break
-        if args.merge_label == "*" or found == 1:
+        labels = {_.name for _ in pr.get_labels()}
+        if args.merge_label == "*" or args.merge_label in labels:
             try:
                 repo.merge(pr.head.ref, pr.base.ref)
                 print(f"Merged base branch to PR #{pr.number}")
