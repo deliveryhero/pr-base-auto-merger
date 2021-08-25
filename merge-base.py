@@ -33,9 +33,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-d", "--merge_delay", help="Delay between merges")
     parser.add_argument("-l", "--merge_label",
-                        help="Label of PRs for which base can be merged")
-    parser.add_argument("-g", "--github_token", help="Token for GitHub API")
+                        help="Automatically update PRs with this label")
+    parser.add_argument("-g", "--github_token", help="GitHub API token")
     parser.add_argument("-e", "--event_path",
-                        help="JSON file path of GitHub event `POST` webhook payload")
+                        help="Path to GitHub's POST webhook payload")
 
     main(parser.parse_args())
