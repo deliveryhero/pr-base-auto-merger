@@ -32,7 +32,7 @@ def main(args):
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--merge_delay", help="Delay between merges")
 parser.add_argument("-l", "--merge_label",
-                    help="Lable of PRs for which base can be merged")
+                    help="Label of PRs for which base can be merged")
 parser.add_argument("-g", "--github_token", help="Token for GitHub API")
 parser.add_argument("-e", "--event_path",
                     help="JSON file path of GitHub event `POST` webhook payload")
