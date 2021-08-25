@@ -20,17 +20,22 @@ def main(args):
         if args.merge_label == "*" or found == 1:
             try:
                 repo.merge(pr.head.ref, pr.base.ref)
-                print("Merged base branch to PR #" + str(pr.number))
+                print(f"Merged base branch to PR #{pr.number}")
                 time.sleep(int(args.merge_delay))
             except:
-                print("Merge of base branch failed for PR #" + str(pr.number) + "! Please check merge conflicts")
+                print(
+                    f"Merge of base branch failed for PR #{pr.number}! "
+                    "Please check for merge conflicts."
+                )
 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--merge_delay", help="Delay between merges")
-parser.add_argument("-l", "--merge_label", help="Lable of PRs for which base can be merged")
+parser.add_argument("-l", "--merge_label",
+                    help="Lable of PRs for which base can be merged")
 parser.add_argument("-g", "--github_token", help="Token for GitHub API")
-parser.add_argument("-e", "--event_path", help="JSON file path of GitHub event `POST` webhook payload")
+parser.add_argument("-e", "--event_path",
+                    help="JSON file path of GitHub event `POST` webhook payload")
 
 args = parser.parse_args()
 
