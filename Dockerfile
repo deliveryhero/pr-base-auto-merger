@@ -1,9 +1,9 @@
-FROM python:3.8-alpine
+FROM python:3.9-slim
 
-RUN apk --no-cache add bash
-RUN pip install --upgrade pip
-RUN pip install PyGithub
+WORKDIR /app
 
-ADD entrypoint.sh /entrypoint.sh
-COPY merge-base.py /app/merge-base.py
-ENTRYPOINT ["/entrypoint.sh"]
+RUN pip install --upgrade pip && pip install PyGithub
+
+COPY merge-base.py merge-base.py
+
+CMD python merge-base.py --github_token $GITHUB_TOKEN --event_path $GITHUB_EVENT_PATH --merge_delay $MERGE_DELAY --merge_label $MERGE_LABEL
