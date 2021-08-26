@@ -1,18 +1,15 @@
-# pr-base-auto-merger
-Automatically merge main/master branch into all open PRs. So add auto-base-merge label + [enable automerge](https://docs.github.com/en/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request) on Github UI and your PR will be automatically merged after approval without any worry of out of sync PR local branch.
+# Automatically Update Open PRs
+This Github Action will automatically update your PRs whenever the main branch
+has new commits. If you also enable Github's
+[automerge](https://docs.github.com/en/github/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)
+feature then your PR will automatically be merged once it passes all checks like
+CI or PR review.
 
-## How it works?
-- GH action job will be triggered when there is a push to main/master branch by merging PR or direct commit.
-- GH action job will update open PRs and merge the main/master branch into the local branches.
+## Usage
+Add the following Github Action to your repository, for instance in
+`.github/workflows/pr-auto-merge.yml`:
 
-Features:
-- You can specify a delay between merges via the `MERGE_DELAY` env variable to avoid load on CI/CD tools, Atlantis etc.
-- You can specify label of PRs for which base can be merged by `MERGE_LABEL` env variable.You can set it to `*` to include all open PRs ignoring labels.
-
-
-## Steps to onboard repo
-- Just add below to Github Actions workflow YAML in the `.github/workflows/` folder:
-  ```
+  ```yaml
   name: Merge base branch into PRs
 
   on:
@@ -39,5 +36,10 @@ Features:
 
   ```
 
-## TO-DO features
+## How It Works
+The GH Action will trigger whenever there are new commits on the main/master
+branch. It will then scan all PRs and automatically update those that have the
+`MERGE_LABEL` (see Github Action snippet above) on them.
+
+## TO-DO
 - Add option to automerge base branch for only approved PRs to reduce unnecessary master merges

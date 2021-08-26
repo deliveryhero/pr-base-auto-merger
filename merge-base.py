@@ -31,11 +31,10 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("-d", "--merge_delay", help="Delay between merges")
-    parser.add_argument("-l", "--merge_label",
-                        help="Automatically update PRs with this label")
-    parser.add_argument("-g", "--github_token", help="GitHub API token")
-    parser.add_argument("-e", "--event_path",
-                        help="Path to GitHub's POST webhook payload")
+    padd = parser.add_argument
+    padd("-d", "--merge_delay", help="Delay between merges")
+    padd("-l", "--merge_label", help="Update all PRs with this label")
+    padd("-g", "--github_token", help="GitHub API token")
+    padd("-e", "--event_path", help="Path to GitHub's POST webhook payload")
 
     main(parser.parse_args())
